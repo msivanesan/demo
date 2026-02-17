@@ -1020,6 +1020,62 @@ img {
 }
 
 /* ==========================================================================
+   8. TESTIMONIALS SECTION
+   ========================================================================== */
+.testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.quote-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    opacity: 0.3;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-style: italic;
+    flex-grow: 1;
+}
+
+.client-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: var(--primary-color);
+}
+
+.client-role {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
    9. CONTACT SECTION
    ========================================================================== */
 .contact-grid {
@@ -1802,47 +1858,78 @@ textarea.form-input {
         /* Visual alignment with title */
     }
 
-    /* Services Grid - Horizontal Layout */
+    /* Services Grid - Revert to Vertical Card (Icon Top Left) */
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
-        width: 100%;
+        gap: 1.5rem;
     }
 
     .service-card {
         margin-bottom: 0;
         width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        /* Center vertically */
+        display: block;
+        /* Stack vertically */
         text-align: left;
-        padding: 1rem;
-        /* Adjust padding */
+        padding: 2rem;
     }
 
     .service-card .service-icon {
-        margin-bottom: 0;
+        margin-bottom: 1rem;
+        display: inline-block;
+        font-size: 2rem;
+        padding: 0;
         margin-right: 0;
-        /* Clear margin */
-        padding: 0 1rem;
-        /* Spacing */
     }
 
     .service-content {
-        padding: 1rem 0;
-        /* Vertical padding only */
+        padding: 0;
     }
 
-    /* Fix alignment of service title/text */
     .service-content h3 {
-        margin-bottom: 0.2rem;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
     }
 
-    .service-content p {
+    /* Testimonials - Horizontal Scroll */
+    .testimonials {
+        overflow: hidden;
+    }
+
+    .testimonials-grid {
+        display: flex;
+        overflow-x: auto;
+        padding: 1rem 0 2rem 1.5rem;
+        gap: 1.5rem;
+        scroll-snap-type: x mandatory;
+        padding-right: 20px;
+        margin-right: -1rem;
+        /* Pull to edge */
+    }
+
+    .testimonial-card {
+        min-width: 85%;
+        scroll-snap-align: start;
+        margin-right: 0;
+        height: auto;
+    }
+
+    /* Contact Form - Mobile Optimization */
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-input {
+        padding: 0.8rem;
         font-size: 0.9rem;
-        line-height: 1.4;
+    }
+
+    .form-group label {
+        font-size: 0.8rem;
+    }
+
+    .contact-form .btn {
+        padding: 1rem;
+        font-size: 0.9rem;
     }
 
     /* Portfolio/Carousel */
