@@ -257,4 +257,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- Mobile Bottom Nav Active State ---
+    const mobileNavLinks = document.querySelectorAll('.mobile-bottom-nav a[href^="#"]');
+
+    function updateMobileNav() {
+        const scrollY = window.pageYOffset;
+        const allSections = document.querySelectorAll('section[id]');
+        let currentId = 'home';
+
+        allSections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (scrollY >= sectionTop) {
+                currentId = section.getAttribute('id');
+            }
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + currentId) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    if (mobileNavLinks.length > 0) {
+        window.addEventListener('scroll', updateMobileNav, { passive: true });
+        updateMobileNav();
+    }
+
+    // --- Mobile Bottom Nav tap ripple ---
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            mobileNavLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
 });
