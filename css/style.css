@@ -2238,40 +2238,69 @@ textarea.form-input {
         position: relative !important;
         height: auto;
         width: 100%;
-        margin-bottom: 3rem;
+        margin: 0 auto 3.5rem;
         overflow: visible !important;
         display: block;
-        padding: 10px;
-        /* Reduced for mobile */
+        padding: 15px;
+        /* Better breathing room */
+        max-width: 500px;
+        /* Prevent overly large video on wide mobiles */
     }
 
     .about-image-wrapper::before {
-        width: 60%;
-        height: 80%;
+        width: 120px;
+        height: 120px;
         top: -5px;
         left: -5px;
+        border: 2px solid var(--secondary-color);
+        opacity: 0.2;
+        border-radius: 15px;
+    }
+
+    .about-image-wrapper::after {
+        width: 50px;
+        height: 50px;
+        bottom: -5px;
+        right: 10px;
+        display: block !important;
     }
 
     .about-video-container {
-        margin-bottom: 2rem;
+        margin-bottom: 0;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
-    /* Stats/Experience Badge - Centered for Mobile */
+    /* Stats/Experience Badge - Proper overlap for Mobile */
     .experience-badge {
-        position: relative !important;
-        inset: auto !important;
-        margin: -60px auto 20px !important;
-        width: 130px !important;
-        height: 130px !important;
+        position: absolute !important;
+        bottom: -20px !important;
+        right: 5px !important;
+        left: auto !important;
+        margin: 0 !important;
+        width: 110px !important;
+        height: 110px !important;
         background: var(--white) !important;
-        border: 1px solid rgba(0, 0, 0, 0.05) !important;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+        padding: 5px !important;
+        border-radius: 50% !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+        z-index: 20 !important;
+        display: flex !important;
+        border: none !important;
     }
 
     .experience-wrap {
-        width: 110px !important;
-        height: 110px !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: linear-gradient(135deg, var(--secondary-color), #b8860b) !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
+
+
 
     .experience-badge::after {
         display: none;
@@ -2279,12 +2308,19 @@ textarea.form-input {
     }
 
     .experience-badge .years {
-        font-size: 1.1rem !important;
+        font-size: 0.9rem !important;
+        font-weight: 700 !important;
         letter-spacing: 1px !important;
+        color: var(--white) !important;
+        margin-bottom: 2px !important;
     }
 
     .experience-badge .text {
-        font-size: 0.7rem !important;
+        font-size: 0.6rem !important;
+        color: var(--white) !important;
+        text-transform: uppercase !important;
+        opacity: 0.9 !important;
+        line-height: 1 !important;
     }
 
     .testimonials-slider {
