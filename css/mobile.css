@@ -178,11 +178,13 @@ html {
 @media screen and (max-width: 768px) {
     .hero {
         min-height: 100svh;
-        height: 100svh;
+        height: auto;
         display: flex;
-        align-items: flex-end;
-        padding-top: 0;
-        padding-bottom: 80px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: calc(var(--header-height) + 2rem);
+        padding-bottom: 5rem;
         text-align: left;
         position: relative;
         overflow: hidden;
