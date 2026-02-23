@@ -1260,11 +1260,24 @@ img {
 
 .portfolio-item {
     position: relative;
-    border-radius: 2px;
+    border-radius: 12px;
     overflow: hidden;
     height: 400px;
     /* Taller editorial style */
     cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1) rotate(2deg);
 }
 
 .portfolio-img-placeholder {
@@ -1277,10 +1290,6 @@ img {
     color: #fff;
     font-size: 1.2rem;
     transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-}
-
-.portfolio-item:hover .portfolio-img-placeholder {
-    transform: scale(1.1) rotate(2deg);
 }
 
 .portfolio-overlay {
@@ -1379,8 +1388,10 @@ img {
    9. CONTACT SECTION
    ========================================================================== */
 .contact-grid {
+    display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 4rem;
+    align-items: start;
 }
 
 .contact-info {
@@ -1510,12 +1521,19 @@ textarea.form-input {
 }
 
 .footer-logo {
-    display: inline-block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     margin-bottom: 1.5rem;
-    font-family: var(--font-heading);
+    text-decoration: none;
+}
+
+.footer-logo .logo-text-wrapper span:first-child {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-logo .logo-text-wrapper {
+    color: var(--white);
 }
 
 .footer-text {
@@ -1537,11 +1555,14 @@ textarea.form-input {
     justify-content: center;
     border-radius: 50%;
     transition: var(--transition);
+    color: var(--white);
 }
 
 .footer-socials a:hover {
     background-color: var(--secondary-color);
     color: var(--white);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(201, 163, 111, 0.3);
 }
 
 .footer-links li {
@@ -1556,6 +1577,8 @@ textarea.form-input {
     padding: 2rem 0;
     text-align: center;
     font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.5px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1570,6 +1593,7 @@ textarea.form-input {
     }
 
     .footer-logo {
+        justify-content: center;
         margin: 0 auto 1.5rem auto;
     }
 
