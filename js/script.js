@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navToggle) {
         navToggle.addEventListener('click', () => {
             navMenu.classList.add('show-menu');
+            document.body.classList.add('no-scroll');
         });
     }
 
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navClose) {
         navClose.addEventListener('click', () => {
             navMenu.classList.remove('show-menu');
+            document.body.classList.remove('no-scroll');
         });
     }
 
@@ -28,20 +30,28 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('show-menu');
+            document.body.classList.remove('no-scroll');
         });
     });
 
-    // --- Header Scroll Effect ---
+    // --- Header & Scroll Progress ---
     const header = document.getElementById('header');
+    const scrollProgress = document.querySelector('.scroll-progress');
 
     window.addEventListener('scroll', () => {
+        // Scroll Progress Bar
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (scrollProgress) {
+            scrollProgress.style.width = scrolled + "%";
+        }
+
+        // Header Style
         if (window.scrollY >= 50) {
-            header.style.boxShadow = "0 10px 30px rgba(0,0,0,0.1)";
-            header.style.backgroundColor = "rgba(255, 255, 255, 0.98)";
-            header.style.padding = "0"; // Compact slightly
+            header.classList.add('scroll-active');
         } else {
-            header.style.boxShadow = "none";
-            header.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
+            header.classList.remove('scroll-active');
         }
     });
 
@@ -74,12 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateCards = document.querySelectorAll('.feature-card, .service-card, .portfolio-item');
 
     // Add reveal class to cards if they don't have it manually added to parent
-    // This makes individual cards animate nicely
-    animateCards.forEach(el => {
+    animateCards.forEach((el, index) => {
         el.classList.add('reveal');
-        // Add stagger class to parent for automatic staggering
-        if (el.parentElement.classList.contains('grid')) {
-            el.parentElement.classList.add('reveal-stagger');
+
+        // Add individual transition delay for staggering effect
+        // Find position in current grid parent to reset stagger per grid
+        const parent = el.parentElement;
+        if (parent && parent.classList.contains('grid')) {
+            const children = Array.from(parent.children);
+            const gridIndex = children.indexOf(el);
+            el.style.transitionDelay = `${gridIndex * 0.15}s`;
         }
     });
 
@@ -124,13 +138,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (filterValue === 'all' || itemCategory.includes(filterValue)) {
                         item.style.display = 'block';
                         setTimeout(() => {
-                            item.classList.add('active'); // Reuse reveal active state
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                            item.classList.add('active');
                         }, 50);
                     } else {
                         item.classList.remove('active');
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
                         setTimeout(() => {
                             item.style.display = 'none';
-                        }, 300);
+                        }, 400);
                     }
                 });
             });
@@ -172,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('load', () => {
             setTimeout(() => {
                 preloader.classList.add('hide');
-            }, 200);
+            }, 800);
         });
     }
 
@@ -209,6 +227,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 1024: {
                     slidesPerView: 3,
                     spaceBetween: 40,
+                },
+            }
+        });
+    }
+
+    // --- Swiper Testimonials Initialization ---
+    if (typeof Swiper !== 'undefined' && document.querySelector('.testimonials-slider')) {
+        new Swiper('.testimonials-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
                 },
             }
         });

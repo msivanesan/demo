@@ -25,13 +25,24 @@
 
 <body>
 
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
     <!-- Preloader -->
     <div id="preloader">
-        <div class="loader-logo">
-            <span>Sri Thirumalai</span>
-            <span class="highlight">Enterprises</span>
+        <div class="loader-content">
+            <div class="loader-logo-wrapper">
+                <img src="images/logo.jpeg" alt="Sri Thirumalai Logo" class="loader-logo-img">
+                <div class="loader-circle"></div>
+            </div>
+            <div class="loader-branding">
+                <span class="loader-name">Sri Thirumalai</span>
+                <span class="loader-highlight">Enterprises</span>
+            </div>
+            <div class="loader-progress">
+                <div class="loader-bar"></div>
+            </div>
         </div>
-        <div class="loader-line"></div>
     </div>
 
     <!-- Header -->
@@ -74,7 +85,7 @@
                 landscaping solutions, delivering durable, secure, and aesthetically pleasing outdoor solutions.</p>
             <div class="hero-buttons reveal">
                 <a href="#services" class="btn btn-primary">Our Services</a>
-                <a href="https://wa.me/919876543210" class="btn btn-outline" target="_blank"><i
+                <a href="https://wa.me/919443094013" class="btn btn-outline" target="_blank"><i
                         class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
             </div>
         </div>
@@ -87,20 +98,24 @@
     <section class="about section" id="about">
         <div class="container grid about-grid">
             <div class="about-image-wrapper">
-                <div class="about-img-placeholder">
-                    <i class="fa-solid fa-video fa-3x"
-                        style="margin-bottom:1rem; display:block; width:100%; text-align:center;"></i>
-                    <span>Watch Our Video</span>
+                <div class="about-video-container">
+                    <iframe src="https://www.youtube.com/embed/Sj_D0lzRWEs"
+                        title="FAQ Answered: Fencing Contractor Comparison"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="experience-badge">
-                    <span class="years">Premium</span>
-                    <span class="text">Quality<br>Work</span>
+                    <div class="experience-wrap">
+                        <span class="years">Premium</span>
+                        <span class="text">Quality Finish</span>
+                    </div>
                 </div>
             </div>
             <div class="about-data reveal-left">
-                <h2 class="section-title text-left" style="text-align: left;">Trusted Solutions for <br> Secure & Green
+                <h2 class="section-title text-left">Trusted Solutions for <br> Secure & Green
                     Spaces</h2>
-                <p class="section-subtitle text-left" style="text-align: left;">About Us</p>
+                <p class="section-subtitle text-left">About Us</p>
                 <p class="about-description">
                     <strong>Sri Thirumalai Enterprises</strong> specializes in professional fencing and comprehensive
                     landscape development services for residential, commercial, agricultural, and industrial properties.
@@ -130,8 +145,11 @@
 
             <!-- Fencing Category -->
             <h3 class="category-title reveal">Fencing Solutions</h3>
-            <div class="grid services-grid">
+            <div class="grid services-grid reveal-stagger">
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/Chainlink fencing work/1.webp" alt="Chain Link Fencing">
+                    </div>
                     <div class="service-icon"><i class="fa-solid fa-link"></i></div>
                     <div class="service-content">
                         <h3>Chain Link Fencing</h3>
@@ -140,7 +158,10 @@
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-barcode"></i></div> <!-- closest to barbed wire -->
+                    <div class="service-image">
+                        <img src="images/Barbed wire Fencing work/1.webp" alt="Barbed Wire Fencing">
+                    </div>
+                    <div class="service-icon"><i class="fa-solid fa-barcode"></i></div>
                     <div class="service-content">
                         <h3>Barbed Wire Fencing</h3>
                         <p>Secure boundary protection using premium quality barbed wires. Ideal for agricultural lands,
@@ -148,17 +169,24 @@
                     </div>
                 </div>
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/Razar blade coil or Concertina coil  work photos/1.webp"
+                            alt="Razor Coil Fencing">
+                    </div>
                     <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
                     <div class="service-content">
-                        <h3>Compound Wall (Razor Coil)</h3>
+                        <h3>Compound Wall Fencing (Razor Coil)</h3>
                         <p>Heavy-duty razor coil fencing installed over compound walls for enhanced security. Suitable
                             for factories, warehouses, commercial buildings, and high-security areas.</p>
                     </div>
                 </div>
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/Agriculture and industrial fencing/1.webp" alt="Agricultural Fencing">
+                    </div>
                     <div class="service-icon"><i class="fa-solid fa-tractor"></i></div>
                     <div class="service-content">
-                        <h3>Agricultural & Industrial</h3>
+                        <h3>Agricultural & Industrial Fencing</h3>
                         <p>Customized fencing solutions designed for farms, industrial zones, warehouses, and
                             large-scale properties ensuring maximum safety and durability.</p>
                     </div>
@@ -166,42 +194,125 @@
             </div>
 
             <!-- Landscape Category -->
-            <h3 class="category-title" style="margin-top: 4rem;">Complete Landscape Solutions</h3>
-            <div class="grid services-grid">
+            <h3 class="category-title reveal" style="margin-top: 4rem;">Advanced Landscape Services</h3>
+            <div class="grid services-grid reveal-stagger">
                 <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home garden/1.webp" alt="Hi-Tech Green Planning">
+                    </div>
                     <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
                     <div class="service-content">
                         <h3>Hi-Tech Green Planning</h3>
-                        <ul class="service-list">
-                            <li>Hi-Tech Green Planning</li>
-                            <li>Statue Work (Garden & Wall)</li>
-                            <li>Premium Aesthetic Design</li>
-                            <li>Organic & Inorganic Manure</li>
-                        </ul>
+                        <p>We provide modern landscape planning using advanced techniques to create sustainable,
+                            eco-friendly, and visually appealing outdoor environments. Our approach combines plant
+                            selection, layout design, and efficient resource planning for long-term greenery.</p>
                     </div>
                 </div>
                 <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home garden/2.webp" alt="Water Body Installation">
+                    </div>
                     <div class="service-icon"><i class="fa-solid fa-water"></i></div>
                     <div class="service-content">
-                        <h3>Water Features & Pools</h3>
-                        <ul class="service-list">
-                            <li>Swimming Pool Execution</li>
-                            <li>Water Body Creation</li>
-                            <li>Wall Fountains</li>
-                            <li>Water Irrigation & Automation</li>
-                        </ul>
+                        <h3>Water Body Installation</h3>
+                        <p>We design and construct decorative water bodies that enhance the aesthetic value of outdoor
+                            spaces, including artificial ponds and customized water features.</p>
                     </div>
                 </div>
                 <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home garden/3.webp" alt="Statue Work">
+                    </div>
+                    <div class="service-icon"><i class="fa-solid fa-monument"></i></div>
+                    <div class="service-content">
+                        <h3>Statue Work (Garden Decor)</h3>
+                        <p>We install decorative garden statues to create elegant and artistic outdoor environments
+                            suited for residential and commercial landscapes.</p>
+                    </div>
+                </div>
+                <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home garden/6.webp" alt="Wall Statue Work">
+                    </div>
+                    <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+                    <div class="service-content">
+                        <h3>Wall Statue Work</h3>
+                        <p>Customized wall-mounted decorative statues designed to enhance compound walls, entrance
+                            areas, and landscape focal points.</p>
+                    </div>
+                </div>
+                <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home landscaping/1.webp" alt="Swimming Pool Execution">
+                    </div>
+                    <div class="service-icon"><i class="fa-solid fa-person-swimming"></i></div>
+                    <div class="service-content">
+                        <h3>Swimming Pool Execution</h3>
+                        <p>We undertake complete swimming pool execution with professional planning, structural setup,
+                            and finishing for residential and commercial projects.</p>
+                    </div>
+                </div>
+                <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home garden/7.webp" alt="Wall Fountains">
+                    </div>
+                    <div class="service-icon"><i class="fa-solid fa-faucet-drip"></i></div>
+                    <div class="service-content">
+                        <h3>Wall Fountains</h3>
+                        <p>Installation of modern and decorative wall fountains that add a premium visual element and
+                            relaxing water effect to outdoor and indoor spaces.</p>
+                    </div>
+                </div>
+                <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home garden/8.webp" alt="Drainage solutions">
+                    </div>
                     <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
                     <div class="service-content">
-                        <h3>Structure & Materials</h3>
-                        <ul class="service-list">
-                            <li>Pergola (Forcola) Steel Work</li>
-                            <li>Drain Cells & Zero Mat Cloth</li>
-                            <li>Availability of All Plants</li>
-                            <li>Comprehensive Civil Work</li>
-                        </ul>
+                        <h3>Drain Cell & Zero Mat Cloth</h3>
+                        <p>We provide drainage solutions using drain cells and geo/zero mat cloth systems to ensure
+                            proper water flow and soil stability in landscape areas.</p>
+                    </div>
+                </div>
+                <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home garden/9.webp" alt="Water Irrigation">
+                    </div>
+                    <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <div class="service-content">
+                        <h3>Water Irrigation & Automation</h3>
+                        <p>Installation of automated irrigation systems including drip and sprinkler setups for
+                            efficient water management and healthy plant growth.</p>
+                    </div>
+                </div>
+                <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home garden/4.webp" alt="Pergola Structure">
+                    </div>
+                    <div class="service-icon"><i class="fa-solid fa-archway"></i></div>
+                    <div class="service-content">
+                        <h3>Pergola / Steel Structure Work</h3>
+                        <p>We design and install pergolas and custom steel structures to enhance outdoor spaces,
+                            providing both functional shade and modern architectural appeal.</p>
+                    </div>
+                </div>
+                <div class="service-card landscape-card">
+                    <div class="service-image">
+                        <img src="images/Home garden/5.webp" alt="Variety of Plants">
+                    </div>
+                    <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <div class="service-content">
+                        <h3>All Types of Plants Available</h3>
+                        <p>We supply a wide range of indoor and outdoor plants suitable for gardens, landscapes, and
+                            decorative environments.</p>
+                    </div>
+                </div>
+                <div class="service-card landscape-card">
+                    <div class="service-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                    <div class="service-content">
+                        <h3>Organic & Inorganic Manure</h3>
+                        <p>We provide quality organic and inorganic manure to support healthy plant growth and
+                            long-lasting landscape sustainability.</p>
                     </div>
                 </div>
             </div>
@@ -223,50 +334,51 @@
                     <!-- Project 1 -->
                     <div class="swiper-slide">
                         <div class="portfolio-item">
-                            <div class="portfolio-img-placeholder">Project 1</div>
+                            <img src="images/Home garden/5.webp" alt="Garden Landscape">
                             <div class="portfolio-overlay">
                                 <h3>Garden Landscape</h3>
-                                <span>View Details</span>
+                                <span>Landscape Development</span>
                             </div>
                         </div>
                     </div>
                     <!-- Project 2 -->
                     <div class="swiper-slide">
                         <div class="portfolio-item">
-                            <div class="portfolio-img-placeholder">Project 2</div>
+                            <img src="images/L Angle fencing work/1.webp" alt="Industrial Fencing">
                             <div class="portfolio-overlay">
                                 <h3>Industrial Fencing</h3>
-                                <span>View Details</span>
+                                <span>Boundary Protection</span>
                             </div>
                         </div>
                     </div>
                     <!-- Project 3 -->
                     <div class="swiper-slide">
                         <div class="portfolio-item">
-                            <div class="portfolio-img-placeholder">Project 3</div>
+                            <img src="images/Home landscaping/1.webp" alt="Swimming Pool">
                             <div class="portfolio-overlay">
                                 <h3>Swimming Pool</h3>
-                                <span>View Details</span>
+                                <span>Landscape Execution</span>
                             </div>
                         </div>
                     </div>
                     <!-- Project 4 -->
                     <div class="swiper-slide">
                         <div class="portfolio-item">
-                            <div class="portfolio-img-placeholder">Project 4</div>
+                            <img src="images/Razar blade coil or Concertina coil  work photos/2.webp"
+                                alt="Razor Wire Security">
                             <div class="portfolio-overlay">
                                 <h3>Razor Wire Security</h3>
-                                <span>View Details</span>
+                                <span>High-Security Fencing</span>
                             </div>
                         </div>
                     </div>
                     <!-- Project 5 -->
                     <div class="swiper-slide">
                         <div class="portfolio-item">
-                            <div class="portfolio-img-placeholder">Project 5</div>
+                            <img src="images/Garden fencing/1.webp" alt="Farm House Boundary">
                             <div class="portfolio-overlay">
                                 <h3>Farm House Boundary</h3>
-                                <span>View Details</span>
+                                <span>Custom Garden Fencing</span>
                             </div>
                         </div>
                     </div>
@@ -298,28 +410,56 @@
                 <p class="section-subtitle">Real feedback from real customers</p>
             </div>
 
-            <div class="grid testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Excellent service! The fencing for our farm was done perfectly and on
-                        time. Highly recommended."</p>
-                    <h4 class="client-name">- Rajesh Kumar</h4>
-                    <span class="client-role">Agricultural Client</span>
+            <div class="testimonials-slider swiper reveal">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                            <p class="testimonial-text">"Sri Thirumalai Enterprises delivered exceptional fencing work
+                                with
+                                outstanding quality and precision. Their professionalism, timely execution, and
+                                attention to detail truly reflect their expertise."</p>
+                            <h4 class="client-name">Mr. Ramesh Kumar</h4>
+                            <span class="client-role">Coimbatore</span>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                            <p class="testimonial-text">"The landscape transformation exceeded our expectations. The
+                                team
+                                demonstrated excellent design sense and executed the project with remarkable finishing
+                                standards."</p>
+                            <h4 class="client-name">Mr. Prakash R</h4>
+                            <span class="client-role">Erode</span>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                            <p class="testimonial-text">"Highly reliable and well-organized service. From planning to
+                                completion, the entire process was handled smoothly with premium workmanship."</p>
+                            <h4 class="client-name">Mr. Suresh K</h4>
+                            <span class="client-role">Tiruppur</span>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                            <p class="testimonial-text">"We are extremely satisfied with both the security fencing and
+                                landscape development. The quality of materials and finishing clearly shows their
+                                commitment to excellence."</p>
+                            <h4 class="client-name">Mrs. Lakshmi V</h4>
+                            <span class="client-role">Salem</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Sri Thirumalai Enterprises transformed our backyard with a beautiful
-                        landscape and water fountain. It looks amazing!"</p>
-                    <h4 class="client-name">- Priya S.</h4>
-                    <span class="client-role">Homeowner</span>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                    <p class="testimonial-text">"Professional team and quality materials used for our factory compound
-                        wall. Very secure now."</p>
-                    <h4 class="client-name">- Anand M.</h4>
-                    <span class="client-role">Factory Manager</span>
-                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
@@ -331,67 +471,69 @@
                 <h2 class="section-title" style="text-align: left;">Get In Touch</h2>
                 <p class="contact-description">Ready to start your project? Contact us for a consultation or quote.</p>
 
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-                    <div>
-                        <h3>Call Us</h3>
-                        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                <div class="reveal-stagger">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p><a href="tel:+919443094013">+91 94430 94013</a> / <a href="tel:+918489968866">+91 84899
+                                    68866</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:info@srithirumalai.com">info@srithirumalai.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Coimbatore, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links" style="margin-top: 2rem; display: flex; gap: 1rem;">
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-                    <div>
-                        <h3>Email Us</h3>
-                        <p><a href="mailto:info@srithirumalai.com">info@srithirumalai.com</a></p>
+                <form class="contact-form reveal-right">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-input" placeholder="Your Name" required>
                     </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-                    <div>
-                        <h3>Location</h3>
-                        <p>123 Main Street, City Name, State, India</p>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="Your Email" required>
                     </div>
-                </div>
-
-                <div class="social-links" style="margin-top: 2rem; display: flex; gap: 1rem;">
-                    <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label> <!-- Added Phone -->
+                        <input type="tel" id="phone" class="form-input" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Interested In</label>
+                        <select id="service" class="form-input">
+                            <option value="fencing">Fencing Solutions</option>
+                            <option value="landscaping">Landscape & Garden</option>
+                            <option value="pool">Swimming Pool / Water Features</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-input" rows="5" placeholder="Tell us about your project..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                </form>
             </div>
-
-            <form class="contact-form reveal-right">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" class="form-input" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="form-input" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label> <!-- Added Phone -->
-                    <input type="tel" id="phone" class="form-input" placeholder="Your Phone Number" required>
-                </div>
-                <div class="form-group">
-                    <label for="service">Interested In</label>
-                    <select id="service" class="form-input">
-                        <option value="fencing">Fencing Solutions</option>
-                        <option value="landscaping">Landscape & Garden</option>
-                        <option value="pool">Swimming Pool / Water Features</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" class="form-input" rows="5" placeholder="Tell us about your project..."
-                        required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-            </form>
-        </div>
 
     </section>
 
@@ -399,8 +541,12 @@
     <footer class="footer">
         <div class="container grid footer-grid">
             <div class="footer-col">
-                <a href="#" class="footer-logo">
-                    Sri Thirumalai <span class="highlight">Enterprises</span>
+                <a href="#" class="logo footer-logo" style="margin-bottom: 1.5rem;">
+                    <img src="images/logo.jpeg" alt="Logo" class="logo-img">
+                    <div class="logo-text-wrapper">
+                        <span style="color: var(--white);">Sri Thirumalai</span>
+                        <span class="highlight">Enterprises</span>
+                    </div>
                 </a>
                 <p class="footer-text">Providing complete fencing and landscape solutions. Durable, aesthetic, and
                     reliable.</p>
@@ -437,7 +583,7 @@
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919443094013" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
