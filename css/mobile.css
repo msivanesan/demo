@@ -177,14 +177,15 @@ html {
    ============================================= */
 @media screen and (max-width: 768px) {
     .hero {
-        min-height: 100svh;
+        min-height: 0;
         height: auto;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
-        padding-top: calc(var(--header-height) + 2rem);
-        padding-bottom: 5rem;
+        justify-content: flex-start;
+        padding-top: calc(var(--header-height) + 3.5rem);
+        padding-bottom: calc(64px + 2rem);
+        /* bottom nav height + breathing room */
         text-align: left;
         position: relative;
         overflow: hidden;
@@ -996,9 +997,10 @@ html {
     }
 
     .hero-description {
-        font-size: 0.85rem;
-        display: none;
-        /* Hide on tiny screens to keep it clean */
+        font-size: 0.82rem;
+        display: block !important;
+        max-width: 280px;
+        opacity: 0.8;
     }
 
     /* Contact chips become 2-column grid */
@@ -1018,9 +1020,9 @@ html {
    ============================================= */
 @media screen and (max-width: 768px) and (orientation: landscape) {
     .hero {
-        min-height: 100vw;
+        min-height: 0;
         height: auto;
-        padding-bottom: 60px;
+        padding-bottom: calc(56px + 1.5rem);
     }
 
     .mobile-bottom-nav {
