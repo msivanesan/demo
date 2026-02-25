@@ -258,6 +258,34 @@ document.addEventListener('DOMContentLoaded', () => {
         copyrightEl.innerHTML = '\u00a9 ' + year + ' Sri Thirumalai Enterprises. All rights reserved.';
     }
 
+    // --- GA4: WhatsApp click tracking ---
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', () => {
+            if (typeof gtag === 'function') {
+                gtag('event', 'whatsapp_click', {
+                    event_category: 'engagement',
+                    event_label: link.closest('nav') ? 'bottom_nav' : 'button'
+                });
+            }
+        });
+    });
+
+    // --- GA4: Scroll depth milestones ---
+    const scrollMilestones = new Set();
+    window.addEventListener('scroll', () => {
+        const pct = Math.round(
+            (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+        );
+        [25, 50, 75, 100].forEach(m => {
+            if (pct >= m && !scrollMilestones.has(m)) {
+                scrollMilestones.add(m);
+                if (typeof gtag === 'function') {
+                    gtag('event', 'scroll_depth', { event_category: 'engagement', value: m });
+                }
+            }
+        });
+    }, { passive: true });
+
 });
 
 // --- Preloader (top-level: fires after all assets including images are loaded) ---

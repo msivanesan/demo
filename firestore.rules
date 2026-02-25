@@ -2,10 +2,11 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // "leads" collection — written by contact form, read only via Firebase Console
+    // "leads" — contact form submissions
     match /leads/{docId} {
+      // Anyone can write (contact form), but only authenticated admins can read
       allow write: if validateLead(request.resource.data);
-      allow read:  if false; // Admin only via Firebase Console
+      allow read:  if request.auth != null;
     }
 
     // Block everything else

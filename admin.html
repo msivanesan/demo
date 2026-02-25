@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — Sri Thirumalai Enterprises</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ── LOGIN SCREEN ──────────────────────────────────────────────────────── -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="images/logo.png" alt="Logo">
+                <h1>Sri Thirumalai <span>Enterprises</span></h1>
+            </div>
+            <h2>Admin Sign In</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="admin-email" placeholder="admin@example.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="admin-password" placeholder="••••••••" required
+                        autocomplete="current-password">
+                </div>
+                <p id="login-error" class="login-error"></p>
+                <button type="submit" id="login-btn">
+                    <span id="login-btn-text">Sign In</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ── DASHBOARD ─────────────────────────────────────────────────────────── -->
+    <div id="dashboard" class="dashboard hidden">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="images/logo.png" alt="Logo">
+                <div>
+                    <span>Sri Thirumalai</span>
+                    <span class="highlight">Enterprises</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active" id="nav-dashboard">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </a>
+                <a href="#leads-section" id="nav-leads">
+                    <i class="fa-solid fa-users"></i> Leads
+                </a>
+                <a href="/index.html" target="_blank" id="nav-site">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> View Site
+                </a>
+            </nav>
+            <button id="logout-btn" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+        </aside>
+
+        <!-- Sidebar backdrop (mobile overlay) -->
+        <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dash-header">
+                <div style="display:flex;align-items:center;gap:0.8rem;">
+                    <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1>Dashboard</h1>
+                </div>
+                <span id="last-refresh"></span>
+            </header>
+
+            <div class="mobile-body">
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon total"><i class="fa-solid fa-users"></i></div>
+                        <div>
+                            <p class="stat-label">Total Leads</p>
+                            <h2 id="stat-total">—</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon month"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div>
+                            <p class="stat-label">This Month</p>
+                            <h2 id="stat-month">—</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon top"><i class="fa-solid fa-star"></i></div>
+                        <div>
+                            <p class="stat-label">Top Service</p>
+                            <h2 id="stat-top" style="font-size:1.1rem;">—</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon today"><i class="fa-solid fa-bell"></i></div>
+                        <div>
+                            <p class="stat-label">Today</p>
+                            <h2 id="stat-today">—</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3><i class="fa-solid fa-chart-pie"></i>&nbsp; By Service</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="serviceChart"></canvas>
+                        </div>
+                        <p id="no-service-data"
+                            style="text-align:center;color:#aaa;font-size:0.8rem;display:none;margin-top:1rem;">No data
+                            yet
+                        </p>
+                    </div>
+                    <div class="chart-card">
+                        <h3><i class="fa-solid fa-chart-bar"></i>&nbsp; Last 7 Days</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="timelineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leads Table -->
+                <div id="leads-section" class="leads-card">
+                    <div class="leads-header">
+                        <h3><i class="fa-solid fa-list"></i>&nbsp; All Leads</h3>
+                        <input type="text" id="search-leads" placeholder="🔍  Search name, phone, email…">
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Service</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leads-tbody">
+                                <tr>
+                                    <td colspan="6" class="loading-row">
+                                        <i class="fa-solid fa-spinner fa-spin"></i>&nbsp; Loading leads…
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- /.mobile-body -->
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script type="module" src="js/admin.js"></script>
+</body>
+
+</html>

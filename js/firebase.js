@@ -106,6 +106,13 @@ if (contactForm) {
         if (bothFailed) {
             showToast('error', 'Something went wrong. Please call us directly.');
         } else {
+            // GA4: fire conversion event
+            if (typeof gtag === 'function') {
+                gtag('event', 'form_submission', {
+                    event_category: 'conversion',
+                    event_label: serviceLabel
+                });
+            }
             showToast('success', 'Message sent! We\'ll reach you within 24 hours.');
             contactForm.reset();
         }
