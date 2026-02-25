@@ -118,42 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCards.forEach(el => observer.observe(el));
 
 
-    // --- Portfolio Filter ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-    if (filterBtns.length > 0) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active to clicked
-                btn.classList.add('active');
-
-                const filterValue = btn.getAttribute('data-filter');
-
-                portfolioItems.forEach(item => {
-                    const itemCategory = item.querySelector('.portfolio-overlay span').textContent.toLowerCase();
-
-                    if (filterValue === 'all' || itemCategory.includes(filterValue)) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                            item.classList.add('active');
-                        }, 50);
-                    } else {
-                        item.classList.remove('active');
-                        item.style.opacity = '0';
-                        item.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 400);
-                    }
-                });
-            });
-        });
-    }
 
     // --- Stats Counter Animation ---
     const experienceSection = document.querySelector('.experience-badge');
@@ -184,15 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Preloader ---
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                preloader.classList.add('hide');
-            }, 800);
-        });
-    }
+
 
     // --- Swiper Portfolio Initialization ---
     // Make sure Swiper is defined before using it (it should be if script is loaded after CDN)
@@ -294,4 +251,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Dynamic Copyright Year ---
+    const copyrightEl = document.getElementById('footer-copyright');
+    if (copyrightEl) {
+        const year = new Date().getFullYear();
+        copyrightEl.innerHTML = '\u00a9 ' + year + ' Sri Thirumalai Enterprises. All rights reserved.';
+    }
+
+});
+
+// --- Preloader (top-level: fires after all assets including images are loaded) ---
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('hide');
+        }, 800);
+    }
 });

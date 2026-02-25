@@ -140,13 +140,7 @@
     }
 }
 
-/* Dark Mode Support (Optional Future Proofing) */
-@media (prefers-color-scheme: dark) {
-    /* :root {
-        --bg-color: #1a252f;
-        --text-color: #ecf0f1;
-    } */
-}
+
 
 * {
     margin: 0;
@@ -312,11 +306,7 @@ img {
     box-shadow: 0 15px 30px rgba(26, 60, 52, 0.2);
 }
 
-.btn-primary:hover {
-    background-color: var(--primary-light);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(26, 60, 52, 0.2);
-}
+
 
 .btn-primary:active {
     transform: translateY(-1px);
@@ -782,9 +772,7 @@ img {
     transition: transform 0.4s var(--bounce);
 }
 
-.feature-card:hover {
-    transform: translateY(-5px);
-}
+
 
 .feature-icon {
     font-size: 2rem;
